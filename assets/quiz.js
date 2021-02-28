@@ -22,7 +22,6 @@ var questionIndex = 0;
 
 function updateTime() {
     timeRemaining -= timeTicks;
-    startQuiz
     var timerText = document.getElementById("countdown");
     timerText.innerHTML = "Timer" + timeRemaining;
 
@@ -92,7 +91,7 @@ function checkQuiz() {
         }
     }
 
-   else if (answer2.checked) {
+    else if (answer2.checked) {
         if (correctAnswer === answer2.nextSibling.textContent) {
             score += 1;
         }
@@ -110,7 +109,7 @@ function checkQuiz() {
         }
     }
 
-   else if (answer4.checked) {
+    else if (answer4.checked) {
         if (correctAnswer === answer4.nextSibling.textContent) {
             score += 1;
         }
@@ -119,7 +118,15 @@ function checkQuiz() {
         }
     }
 
-
+    //display next question
+    questionIndex++;
+    if (questionIndex < question.length) {
+        displayNextQuestion();
+    } else {
+        var playerName = prompt("Enter inititals:")
+        window.clearInterval(timeTicks);
+        alert("Quiz Completed!\n" + playerName + "score:" + score);
+    }
 }
 
 var question = [
