@@ -15,11 +15,11 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-4"> Hight Score </div>
-        <div class="col-4 text-right "> Timer </div>
-      </div>
-    </div>
-    <div class= "container">
+        <div id= "countdown" class="col-4 text-right ">
+           Timer 
+          </div>
+          <div>
+        </div>
         <div class = "row">
             <div class= "col-8 text-center font-weight-bold text-center">
                 <header>
@@ -29,12 +29,11 @@
                     <p> 
                       You have 5 mins to answer five questions, answer a qustion wrong and loss 10 seconds. 
                     </p>
-            </div>
+                    <button id="clickMe" type="button" class="btn btn-dark btn-lg text-center">Click Me to Play</button>
+                    <div id="quiz"></div> 
+                  </div>
         </div> 
     </div>
-   <div class = "text-center">
-    <button id="clickMe" type="button" class="btn btn-dark btn-lg">Click Me to Play</button>
-  </div>
   </body>
   <script
     src="https://code.jquery.com/jquery-3.5.1.min.js"
