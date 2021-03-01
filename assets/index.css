@@ -1,3 +1,10 @@
 #quiz {
-    display: block;
+    /* display: block; */
+    position: center; 
+    left: 30%;
+    border-color: blueviolet;
+    border: 2px;
+    border-style: solid;
+    margin: 5px;
 }
+

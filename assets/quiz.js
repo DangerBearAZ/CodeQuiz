@@ -1,15 +1,19 @@
 
 
-var timeRemaining = 300000;
-var timeTicks = 1000;
-var timePenalty = 10000
-
-//
+var timeRemaining = 300;
+var timeTicks = 1;
+var timePenalty = 10;
+var startButton = document.getElementById('clickMe');
+var submitButton = document.getElementById('answerButton');
+var questionIndex = 0;
 var score = 0;
 
+//make confetti function
+function confettiStuff() {
+    //do confetti things in here...
+}
 
-//set up 
-var questionIndex = 0;
+
 
 function updateTime() {
     timeRemaining -= timeTicks;
@@ -22,14 +26,9 @@ function updateTime() {
     }
 }
 
-//buttons and listen 
-var startButton = document.getElementById('clickMe')
-startButton.addEventListener("click", startQuiz);
-var submitButton = document.getElementById('answerButton')
-submitButton.addEventListener("click", checkQuiz);
 
 function startQuiz() {
-    window.setInterval(updateTime, timeTicks);
+    window.setInterval(updateTime, 1000);
 
     //show element by id 
 
@@ -69,7 +68,6 @@ function checkQuiz() {
         if (currentAnswers[i]["correct"] === true) {
             var correctAnswer = currentAnswers[i]["text"];
         }
-        console.log(correctAnswer);
     }
 
     //compare sel with correct 
@@ -79,6 +77,7 @@ function checkQuiz() {
         }
         else {
             timeRemaining -= timePenalty;
+        alert("wrong answer you lose 10 seconds");
         }
     }
 
@@ -88,15 +87,18 @@ function checkQuiz() {
         }
         else {
             timeRemaining -= timePenalty;
+            alert("wrong answer you lose 10 seconds");
         }
     }
 
     else if (answer3.checked) {
         if (correctAnswer === answer3.nextSibling.textContent) {
             score += 1;
+            
         }
         else {
             timeRemaining -= timePenalty;
+            alert("wrong answer you lose 10 seconds");
         }
     }
 
@@ -106,6 +108,7 @@ function checkQuiz() {
         }
         else {
             timeRemaining -= timePenalty;
+            alert("wrong answer you lose 10 seconds");
         }
     }
 
@@ -168,3 +171,6 @@ var question = [
     }
 
 ]
+
+startButton.addEventListener("click", startQuiz);
+submitButton.addEventListener("click", checkQuiz);
